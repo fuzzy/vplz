@@ -6,7 +6,7 @@ If you look in vplz.v you'll see `pub fn simple_terminal()` which shows how you 
 module main
 
 import time
-import vplz
+import fuzzy.vplz
 
 fn test(mut t vplz.Terminal) {
   t.header()
