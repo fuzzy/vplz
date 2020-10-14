@@ -1,6 +1,6 @@
 # Vplz example usage
 
-```
+```v
 module main
 
 import time
