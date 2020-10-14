@@ -118,7 +118,7 @@ pub fn (mut t Terminal) progress(s string, p f64, end, fail bool) {
     pads = padt
   }
 
-  print('\033[1;36m${t.lscap}${t.xscap}\033[0m ${s} ${t.pad(pads)} ${perc}% ${bars}${etag}')
+  print('${t.lscap}${t.xscap} ${s} ${t.pad(pads)} ${perc}% ${bars}${etag}')
 }
 
 pub fn (mut t Terminal) update(pp f64, fail bool) {
