@@ -1,5 +1,7 @@
 # Vplz example usage
 
+If you look in vplz.v you'll see `pub fn simple_terminal()` which shows how you can customize your Terminal object. Further ability to customize the output is underway.
+
 ```v
 module main
 
