@@ -1,6 +1,4 @@
-module main
-
-import time
+module vplz
 
 #include "sys/ioctl.h"
 
