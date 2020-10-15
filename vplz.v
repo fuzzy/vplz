@@ -11,25 +11,24 @@ fn C.ioctl(fd int, rq u32, itm voidptr)
 
 struct Terminal {
 mut:
+  progs  string
+  progr  f64
+  end    bool
+pub mut:
   yellow string = '\033[1;33m'
   green  string = '\033[1;32m'
   red    string = '\033[1;31m'
   reset  string = '\033[0m'
-  progs  string
-  progr  f64
-  end    bool
-pub:
   ltcap  string = '╔'
   lscap  string = '╠'
   xscap  string = '═'
   lbcap  string = '╚'
   fillr  string = '═'
-pub mut:
   rows   int
   cols   int
 }
 
-pub fn plain_terminal() Terminal {
+pub fn simple_terminal() Terminal {
   mut ts := &C.winsize{}
   C.ioctl(0, 21523, ts)
   return Terminal{
@@ -47,9 +46,9 @@ pub fn plain_terminal() Terminal {
 }
 
 pub fn new_terminal() Terminal {
-  mut ts := &C.winsize{}
-  C.ioctl(0, 21523, ts)
-  return Terminal{rows: ts.ws_row, cols: ts.ws_col}
+  mut retv := Terminal{}
+  retv.update_termsize()
+  return retv
 }
 
 fn (mut t Terminal) filler(l int) string {
@@ -66,6 +65,13 @@ fn (mut t Terminal) pad(pad int) string {
     pada << ' '
   }
   return pada.join('')
+}
+
+pub fn (mut t Terminal) update_termsize() {
+  mut ts := &C.winsize{}
+  C.ioctl(0, 21523, ts)
+  t.rows = ts.ws_row
+  t.cols = ts.ws_col
 }
 
 pub fn (mut t Terminal) header() {
