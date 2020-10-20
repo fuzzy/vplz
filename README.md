@@ -45,8 +45,10 @@ fn test(mut t vplz.Terminal) {
 }
 
 fn main() {
-  mut t := vplz.new_terminal()
-  test(mut t)
+  mut a := vplz.new_terminal()
+  test(mut a)
+  mut b := vplz.simple_terminal()
+  test(mut b)
 }
 ```
 
