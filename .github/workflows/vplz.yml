@@ -20,4 +20,4 @@ jobs:
     - name: Build and symlink vlang
       run: cd /usr/local/vlang ; sudo make && sudo ./v symlink
     - name: build vplz
-      run: cd /home/runner/work/vplz/vplz ; v -stats -shared .
+      run: cd /home/runner/work/vplz/vplz ; /usr/local/bin/v -stats -shared .
