@@ -29,10 +29,10 @@ jobs:
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
     - name: Install support
-      run: apt update ; apt install -y git build-essential
+      run: sudo apt update ; sudo apt install -y git build-essential
     - name: Checkout V
-      run: cd /usr/local ; git clone https://github.com/vlang/v vlang
+      run: cd /usr/local ; sudo git clone https://github.com/vlang/v vlang
     - name: Build and symlink V
-      run: cd /usr/local/vlang ; make && ./v symlink
+      run: cd /usr/local/vlang ; sudo make && sudo ./v symlink
 
 
