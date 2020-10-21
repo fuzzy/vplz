@@ -34,5 +34,7 @@ jobs:
       run: cd /usr/local ; sudo git clone https://github.com/vlang/v vlang
     - name: Build and symlink V
       run: cd /usr/local/vlang ; sudo make && sudo ./v symlink
+    - name: Build vplz
+      run: cd /home/runner/work/vplz/vplz ; v -stats -shared .
 
 
