@@ -76,6 +76,45 @@ pub fn new_progressbar(len int, sty &ProgressBarStyle) &ProgressBar {
 	}
 }
 
+pub fn double_fancy_progressbar() &ProgressBar {
+	return new_progressbar(0, &ProgressBarStyle{
+		working: yellow
+		success: green
+		failed: red
+		top_left: dp_top_left
+		top_right: dp_top_right
+		top_sep: dp_sep_top
+		side_left: dp_vertical
+		side_right: dp_vertical
+		side_sep_left: dp_sep_left
+		side_sep_right: dp_sep_right
+		bottom_left: dp_bottom_left
+		bottom_right: dp_bottom_right
+		bottom_sep: dp_sep_bottom
+		center_sep: dp_sep_center
+	})
+}
+
+pub fn single_fancy_progressbar() &ProgressBar {
+	return new_progressbar(0, &ProgressBarStyle{
+		working: yellow
+		success: green
+		failed: red
+		top_left: sp_top_left
+		top_right: sp_top_right
+		top_sep: sp_sep_top
+		side_left: sp_vertical
+		side_right: sp_vertical
+		side_sep_left: sp_sep_left
+		side_sep_right: sp_sep_right
+		bottom_left: sp_bottom_left
+		bottom_right: sp_bottom_right
+		bottom_sep: sp_sep_bottom
+		center_sep: sp_sep_center
+	})
+}
+
+// ///////////////////////// OLD SOON TO BE DEPRECATED CODE
 struct Bar {
 mut:
 	progs  string
