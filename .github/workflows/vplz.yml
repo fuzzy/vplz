@@ -1,0 +1,23 @@
+name: vplz CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install git
+      run: sudo apt update && sudo apt install -y git
+    - name: Checkout vlang
+      run: cd /usr/local ; sudo git clone https://github.com/vlang/v vlang
+    - name: Build and symlink vlang
+      run: cd /usr/local/vlang ; sudo make && sudo ./v symlink
+    - name: build vplz
+      run: cd /home/runner/work/vplz/vplz ; v -stats -shared .
