@@ -27,7 +27,7 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+      run: echo "Hello ${{ github.event.inputs.name }}" ; pwd
     - name: Install support
       run: sudo apt update ; sudo apt install -y git build-essential
     - name: Checkout V
