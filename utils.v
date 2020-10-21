@@ -8,3 +8,4 @@ fn filler(c string, s int) string {
 	}
 	return retv.join('')
 }
+
